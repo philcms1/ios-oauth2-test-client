@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */; };
+		D96DE9CD1FEB3C88001DBD9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9CB1FEB3C88001DBD9C /* Main.storyboard */; };
+		D96DE9D01FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */; };
+		D96DE9D21FEB3C88001DBD9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */; };
+		D96DE9D51FEB3C88001DBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */; };
+		D96DE9E01FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */; };
+		D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */; };
+		D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D96DE9DC1FEB3C88001DBD9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D96DE9BC1FEB3C88001DBD9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D96DE9C31FEB3C88001DBD9C;
+			remoteInfo = "OAuth 2.0 Test Client";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D96DE9C41FEB3C88001DBD9C /* OAuth 2.0 Test Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OAuth 2.0 Test Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D96DE9CC1FEB3C88001DBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OAuth_2_0_Test_Client.xcdatamodel; sourceTree = "<group>"; };
+		D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D96DE9D41FEB3C88001DBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D96DE9D61FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96DE9DB1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OAuth 2.0 Test ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth_2_0_Test_ClientTests.swift; sourceTree = "<group>"; };
+		D96DE9E11FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewController.swift; sourceTree = "<group>"; };
+		D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D96DE9C11FEB3C88001DBD9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96DE9D81FEB3C88001DBD9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D96DE9BB1FEB3C88001DBD9C = {
+			isa = PBXGroup;
+			children = (
+				D96DE9C61FEB3C88001DBD9C /* OAuth 2.0 Test Client */,
+				D96DE9DE1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests */,
+				D96DE9C51FEB3C88001DBD9C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D96DE9C51FEB3C88001DBD9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D96DE9C41FEB3C88001DBD9C /* OAuth 2.0 Test Client.app */,
+				D96DE9DB1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D96DE9C61FEB3C88001DBD9C /* OAuth 2.0 Test Client */ = {
+			isa = PBXGroup;
+			children = (
+				D9A73DA6200431FA0022BA1D /* Views */,
+				D9A73DA31FFC15BB0022BA1D /* Controllers */,
+				D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */,
+				D96DE9CB1FEB3C88001DBD9C /* Main.storyboard */,
+				D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */,
+				D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */,
+				D96DE9D61FEB3C88001DBD9C /* Info.plist */,
+				D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */,
+			);
+			path = "OAuth 2.0 Test Client";
+			sourceTree = "<group>";
+		};
+		D96DE9DE1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */,
+				D96DE9E11FEB3C88001DBD9C /* Info.plist */,
+			);
+			path = "OAuth 2.0 Test ClientTests";
+			sourceTree = "<group>";
+		};
+		D9A73DA31FFC15BB0022BA1D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D9A73DA6200431FA0022BA1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D96DE9C31FEB3C88001DBD9C /* OAuth 2.0 Test Client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96DE9E41FEB3C88001DBD9C /* Build configuration list for PBXNativeTarget "OAuth 2.0 Test Client" */;
+			buildPhases = (
+				D96DE9C01FEB3C88001DBD9C /* Sources */,
+				D96DE9C11FEB3C88001DBD9C /* Frameworks */,
+				D96DE9C21FEB3C88001DBD9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OAuth 2.0 Test Client";
+			productName = "OAuth 2.0 Test Client";
+			productReference = D96DE9C41FEB3C88001DBD9C /* OAuth 2.0 Test Client.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D96DE9DA1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96DE9E71FEB3C88001DBD9C /* Build configuration list for PBXNativeTarget "OAuth 2.0 Test ClientTests" */;
+			buildPhases = (
+				D96DE9D71FEB3C88001DBD9C /* Sources */,
+				D96DE9D81FEB3C88001DBD9C /* Frameworks */,
+				D96DE9D91FEB3C88001DBD9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D96DE9DD1FEB3C88001DBD9C /* PBXTargetDependency */,
+			);
+			name = "OAuth 2.0 Test ClientTests";
+			productName = "OAuth 2.0 Test ClientTests";
+			productReference = D96DE9DB1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D96DE9BC1FEB3C88001DBD9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "SOA Architects Inc.";
+				TargetAttributes = {
+					D96DE9C31FEB3C88001DBD9C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					D96DE9DA1FEB3C88001DBD9C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D96DE9C31FEB3C88001DBD9C;
+					};
+				};
+			};
+			buildConfigurationList = D96DE9BF1FEB3C88001DBD9C /* Build configuration list for PBXProject "OAuth 2.0 Test Client" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D96DE9BB1FEB3C88001DBD9C;
+			productRefGroup = D96DE9C51FEB3C88001DBD9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D96DE9C31FEB3C88001DBD9C /* OAuth 2.0 Test Client */,
+				D96DE9DA1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D96DE9C21FEB3C88001DBD9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96DE9D51FEB3C88001DBD9C /* LaunchScreen.storyboard in Resources */,
+				D96DE9D21FEB3C88001DBD9C /* Assets.xcassets in Resources */,
+				D96DE9CD1FEB3C88001DBD9C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96DE9D91FEB3C88001DBD9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D96DE9C01FEB3C88001DBD9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */,
+				D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */,
+				D96DE9D01FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld in Sources */,
+				D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96DE9D71FEB3C88001DBD9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96DE9E01FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D96DE9DD1FEB3C88001DBD9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D96DE9C31FEB3C88001DBD9C /* OAuth 2.0 Test Client */;
+			targetProxy = D96DE9DC1FEB3C88001DBD9C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D96DE9CB1FEB3C88001DBD9C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D96DE9CC1FEB3C88001DBD9C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D96DE9D41FEB3C88001DBD9C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D96DE9E21FEB3C88001DBD9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D96DE9E31FEB3C88001DBD9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D96DE9E51FEB3C88001DBD9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9493559BCM;
+				INFOPLIST_FILE = "OAuth 2.0 Test Client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-Client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D96DE9E61FEB3C88001DBD9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9493559BCM;
+				INFOPLIST_FILE = "OAuth 2.0 Test Client/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-Client";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D96DE9E81FEB3C88001DBD9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9493559BCM;
+				INFOPLIST_FILE = "OAuth 2.0 Test ClientTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-ClientTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth 2.0 Test Client.app/OAuth 2.0 Test Client";
+			};
+			name = Debug;
+		};
+		D96DE9E91FEB3C88001DBD9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9493559BCM;
+				INFOPLIST_FILE = "OAuth 2.0 Test ClientTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-ClientTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth 2.0 Test Client.app/OAuth 2.0 Test Client";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D96DE9BF1FEB3C88001DBD9C /* Build configuration list for PBXProject "OAuth 2.0 Test Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96DE9E21FEB3C88001DBD9C /* Debug */,
+				D96DE9E31FEB3C88001DBD9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96DE9E41FEB3C88001DBD9C /* Build configuration list for PBXNativeTarget "OAuth 2.0 Test Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96DE9E51FEB3C88001DBD9C /* Debug */,
+				D96DE9E61FEB3C88001DBD9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96DE9E71FEB3C88001DBD9C /* Build configuration list for PBXNativeTarget "OAuth 2.0 Test ClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96DE9E81FEB3C88001DBD9C /* Debug */,
+				D96DE9E91FEB3C88001DBD9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */,
+			);
+			currentVersion = D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */;
+			path = OAuth_2_0_Test_Client.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D96DE9BC1FEB3C88001DBD9C /* Project object */;
+}
