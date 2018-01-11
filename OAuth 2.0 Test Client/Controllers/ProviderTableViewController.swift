@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
-class ProviderTableViewController: UITableViewController {
+class ProviderTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
 //    var providerNames = ["Hapi OAuth", "Hapi OAuth Localhost", "Demo"]
 //    var providerDomain = ["https://foo.com", "https://localhost:8443/", "https://localhost:8443/"]
 //    var providerCompany = ["SOA Architects", "SOA Architects", "Facebook"]
 //    var providerSelected = Array(repeating: false, count: 3)
     var providers: [ProviderMO] = []
+    var fetchResultController: NSFetchedResultsController<ProviderMO>!
     
     @IBOutlet var emptyProvidersView: UIView!
     
@@ -34,6 +36,26 @@ class ProviderTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.backgroundView = emptyProvidersView
         tableView.backgroundView?.isHidden = true
+        
+        // Fetch data from data store
+        let fetchRequest: NSFetchRequest<ProviderMO> = ProviderMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            do {
+                try fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    providers = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,6 +140,37 @@ class ProviderTableViewController: UITableViewController {
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, detailsAction])
         return swipeConfiguration
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+        case .delete:
+            if let newIndexPath = newIndexPath {
+                tableView.deleteRows(at: [newIndexPath], with: .fade)
+            }
+        case .update:
+            if let newIndexPath = newIndexPath {
+                tableView.reloadRows(at: [newIndexPath], with: .fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        
+        if let fetchedObjects = controller.fetchedObjects {
+            providers = fetchedObjects as! [ProviderMO]
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
     
     /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
