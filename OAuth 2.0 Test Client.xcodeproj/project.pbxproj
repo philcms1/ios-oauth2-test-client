@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */; };
 		D96DE9CD1FEB3C88001DBD9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9CB1FEB3C88001DBD9C /* Main.storyboard */; };
-		D96DE9D01FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */; };
 		D96DE9D21FEB3C88001DBD9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */; };
 		D96DE9D51FEB3C88001DBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */; };
 		D96DE9E01FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */; };
 		D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */; };
 		D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */; };
+		D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */; };
+		D9A73DAD2007C0160022BA1D /* OAuthTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DAB2007C0160022BA1D /* OAuthTest.xcdatamodeld */; };
+		D9A73DAF2008018A0022BA1D /* NewProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DAE2008018A0022BA1D /* NewProviderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,6 @@
 		D96DE9C41FEB3C88001DBD9C /* OAuth 2.0 Test Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OAuth 2.0 Test Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D96DE9CC1FEB3C88001DBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OAuth_2_0_Test_Client.xcdatamodel; sourceTree = "<group>"; };
 		D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D96DE9D41FEB3C88001DBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D96DE9D61FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +41,9 @@
 		D96DE9E11FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewController.swift; sourceTree = "<group>"; };
 		D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
+		D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDetailsViewController.swift; sourceTree = "<group>"; };
+		D9A73DAC2007C0160022BA1D /* OAuthTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OAuthTest.xcdatamodel; sourceTree = "<group>"; };
+		D9A73DAE2008018A0022BA1D /* NewProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProviderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 				D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */,
 				D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */,
 				D96DE9D61FEB3C88001DBD9C /* Info.plist */,
-				D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */,
+				D9A73DAB2007C0160022BA1D /* OAuthTest.xcdatamodeld */,
 			);
 			path = "OAuth 2.0 Test Client";
 			sourceTree = "<group>";
@@ -106,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */,
+				D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */,
+				D9A73DAE2008018A0022BA1D /* NewProviderController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,9 +228,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */,
+				D9A73DAF2008018A0022BA1D /* NewProviderController.swift in Sources */,
 				D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */,
-				D96DE9D01FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld in Sources */,
+				D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */,
 				D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */,
+				D9A73DAD2007C0160022BA1D /* OAuthTest.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +478,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D96DE9CE1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodeld */ = {
+		D9A73DAB2007C0160022BA1D /* OAuthTest.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */,
+				D9A73DAC2007C0160022BA1D /* OAuthTest.xcdatamodel */,
 			);
-			currentVersion = D96DE9CF1FEB3C88001DBD9C /* OAuth_2_0_Test_Client.xcdatamodel */;
-			path = OAuth_2_0_Test_Client.xcdatamodeld;
+			currentVersion = D9A73DAC2007C0160022BA1D /* OAuthTest.xcdatamodel */;
+			path = OAuthTest.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
