@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9476A76200FE9D000EE911B /* OAuth2Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9476A75200FE9D000EE911B /* OAuth2Config.swift */; };
 		D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */; };
 		D96DE9CD1FEB3C88001DBD9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9CB1FEB3C88001DBD9C /* Main.storyboard */; };
 		D96DE9D21FEB3C88001DBD9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D11FEB3C88001DBD9C /* Assets.xcassets */; };
 		D96DE9D51FEB3C88001DBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */; };
 		D96DE9E01FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */; };
+		D96F59BD20116A62004F1581 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59BC20116A62004F1581 /* TabBarController.swift */; };
 		D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */; };
 		D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */; };
 		D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9476A75200FE9D000EE911B /* OAuth2Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Config.swift; sourceTree = "<group>"; };
 		D96DE9C41FEB3C88001DBD9C /* OAuth 2.0 Test Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OAuth 2.0 Test Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D96DE9CC1FEB3C88001DBD9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		D96DE9DB1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OAuth 2.0 Test ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth_2_0_Test_ClientTests.swift; sourceTree = "<group>"; };
 		D96DE9E11FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96F59BC20116A62004F1581 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewController.swift; sourceTree = "<group>"; };
 		D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
 		D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9476A74200FE9A000EE911B /* OAuth2 */ = {
+			isa = PBXGroup;
+			children = (
+				D9476A75200FE9D000EE911B /* OAuth2Config.swift */,
+			);
+			path = OAuth2;
+			sourceTree = "<group>";
+		};
 		D96DE9BB1FEB3C88001DBD9C = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +97,7 @@
 		D96DE9C61FEB3C88001DBD9C /* OAuth 2.0 Test Client */ = {
 			isa = PBXGroup;
 			children = (
+				D9476A74200FE9A000EE911B /* OAuth2 */,
 				D9A73DA6200431FA0022BA1D /* Views */,
 				D9A73DA31FFC15BB0022BA1D /* Controllers */,
 				D96DE9C71FEB3C88001DBD9C /* AppDelegate.swift */,
@@ -112,6 +125,7 @@
 				D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */,
 				D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */,
 				D9A73DAE2008018A0022BA1D /* NewProviderController.swift */,
+				D96F59BC20116A62004F1581 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,7 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */,
+				D96F59BD20116A62004F1581 /* TabBarController.swift in Sources */,
 				D9A73DAF2008018A0022BA1D /* NewProviderController.swift in Sources */,
+				D9476A76200FE9D000EE911B /* OAuth2Config.swift in Sources */,
 				D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */,
 				D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */,
 				D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */,

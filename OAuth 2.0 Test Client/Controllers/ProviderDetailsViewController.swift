@@ -10,7 +10,7 @@ import UIKit
 
 class ProviderDetailsViewController: UIViewController {
 
-    var providerName: String?
+    var provider: ProviderMO?
     
     @IBOutlet var providerNameLabel: UILabel!
     
@@ -18,7 +18,7 @@ class ProviderDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        providerNameLabel.text = providerName
+        providerNameLabel.text = provider?.name
     }
 
     override func didReceiveMemoryWarning() {

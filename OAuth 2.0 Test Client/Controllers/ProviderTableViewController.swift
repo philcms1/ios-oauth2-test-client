@@ -11,12 +11,10 @@ import CoreData
 
 class ProviderTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-//    var providerNames = ["Hapi OAuth", "Hapi OAuth Localhost", "Demo"]
-//    var providerDomain = ["https://foo.com", "https://localhost:8443/", "https://localhost:8443/"]
-//    var providerCompany = ["SOA Architects", "SOA Architects", "Facebook"]
-//    var providerSelected = Array(repeating: false, count: 3)
+    // MARK - Properties
     var providers: [ProviderMO] = []
     var fetchResultController: NSFetchedResultsController<ProviderMO>!
+    var oauth2Config = OAUth2Config.sharedInstance
     
     @IBOutlet var emptyProvidersView: UIView!
     
@@ -24,6 +22,10 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK - iOS Functions
+    // ********************************************************************************
+    // iOS Functions
+    // ********************************************************************************
     override func viewDidLoad() {
         super.viewDidLoad()
         // Adjust table width on iPad
@@ -37,7 +39,9 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
         tableView.backgroundView = emptyProvidersView
         tableView.backgroundView?.isHidden = true
         
-        // Fetch data from data store
+        // ********************************************************************************
+        // Fetch data from Core Data
+        // ********************************************************************************
         let fetchRequest: NSFetchRequest<ProviderMO> = ProviderMO.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -56,6 +60,7 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
                 print(error)
             }
         }
+        // END *****************************************************************************
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,9 +69,10 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     // MARK: - Table view data source
-
+    // ********************************************************************************
+    // TableView Data Source
+    // ********************************************************************************
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         if providers.count > 0 {
             tableView.backgroundView?.isHidden = true
             tableView.separatorStyle = .singleLine
@@ -74,17 +80,15 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
             tableView.backgroundView?.isHidden = false
             tableView.separatorStyle = .none
         }
-        
+
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return providers.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ProviderTableViewCell
         
@@ -104,35 +108,36 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
         return cell
     }
     
-    /*override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            providerNames.remove(at: indexPath.row)
-            providerDomain.remove(at: indexPath.row)
-            providerCompany.remove(at: indexPath.row)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }*/
-    
+    // ********************************************************************************
+    // Swipe left for actions: delete, view details
+    // ********************************************************************************
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        /*
+         * Delete a provider
+         */
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
             (action, sourceView, completionHandler) in
-            // Delete the row from the data source
-//            self.providerNames.remove(at: indexPath.row)
-//            self.providerDomain.remove(at: indexPath.row)
-//            self.providerCompany.remove(at: indexPath.row)
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                context.delete(self.providers[indexPath.row])
+                appDelegate.saveContext()
+            }
             
             // Call completion handler to dismiss the action button
             completionHandler(true)
         }
         
+        /*
+         * View provider details
+         */
         let detailsAction = UIContextualAction(style: .normal, title: "Details") {
             (action, sourceView, completionHandler) in
             
             let providerDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "ProviderDetails") as! ProviderDetailsViewController
-            providerDetailsVC.providerName = self.providers[indexPath.row].name!
+            providerDetailsVC.provider = self.providers[indexPath.row]
+            // Hide navigation bar in details view
+            providerDetailsVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(providerDetailsVC, animated: true)
             // Call completion handler to dismiss the action button
             completionHandler(true)
@@ -142,6 +147,46 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
         return swipeConfiguration
     }
     
+    // ********************************************************************************
+    // Swipe right for actions: select, unselect
+    // ********************************************************************************
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let activeProvider = self.providers[indexPath.row]
+        
+        let selectAction = UIContextualAction(style: .normal, title: "Select") {
+            (action, sourceView, completionHandler) in
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+//                let context = appDelegate.persistentContainer.viewContext
+                activeProvider.isSelected = !activeProvider.isSelected
+                appDelegate.saveContext()
+                // Initialize the OAuth2Config
+                if (activeProvider.isSelected) {
+                    self.oauth2Config.setProvider(provider: activeProvider)
+                } else {
+                    self.oauth2Config.removeProvider()
+                }
+            }
+            
+            completionHandler(true)
+        }
+        
+        // Customize select/unselect action
+        if activeProvider.isSelected {
+            selectAction.backgroundColor = UIColor(red:0.00, green:1.00, blue:0.46, alpha:1.0)
+            selectAction.image = UIImage(named: "undo")
+        } else {
+            selectAction.backgroundColor = UIColor(red:0.00, green:1.00, blue:0.46, alpha:1.0)
+            selectAction.image = UIImage(named: "tick")
+        }
+        
+        let swipeRightConfiguration = UISwipeActionsConfiguration(actions: [selectAction])
+        return swipeRightConfiguration
+    }
+    
+    // ********************************************************************************
+    // MVC for swipe actions
+    // ********************************************************************************
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
