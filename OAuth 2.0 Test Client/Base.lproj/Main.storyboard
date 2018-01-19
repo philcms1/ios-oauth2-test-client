@@ -472,7 +472,7 @@
         <!--Clients-->
         <scene sceneID="7g6-io-963">
             <objects>
-                <tableViewController id="YRD-Qw-KcD" sceneMemberID="viewController">
+                <tableViewController id="YRD-Qw-KcD" customClass="ClientTableViewController" customModule="OAuth_2_0_Test_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1JH-NK-pQ9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -492,11 +492,48 @@
                             <outlet property="delegate" destination="YRD-Qw-KcD" id="bdn-Bm-P6P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Clients" id="YpG-uq-5tv"/>
+                    <navigationItem key="navigationItem" title="Clients" id="YpG-uq-5tv">
+                        <barButtonItem key="rightBarButtonItem" title="DCR" image="plus" id="UNR-kf-lut">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="dJH-nv-Wcq" kind="presentation" identifier="clientDCR" id="lGo-6L-IAM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P7T-vi-Ppq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="596" y="827"/>
+        </scene>
+        <!--DCR-->
+        <scene sceneID="yhr-Zn-pA2">
+            <objects>
+                <viewController id="PEc-7b-62o" customClass="ClientDCRViewController" customModule="OAuth_2_0_Test_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gWz-t2-0VH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="x1Z-MC-BLS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DCR" id="aVa-z1-Cqa">
+                        <barButtonItem key="leftBarButtonItem" image="close" id="z3w-3l-Gtj">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="LNw-l2-OxM" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="zHK-sc-0HG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="save" id="xjw-n2-x8a">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="PEc-7b-62o" id="bEm-ys-Krf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5At-Qn-Ppi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LNw-l2-OxM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2423" y="1018"/>
         </scene>
         <!--Tokens-->
         <scene sceneID="dMd-dW-4d0">
@@ -598,6 +635,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeI-Y4-YyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-694.39999999999998" y="-36.881559220389811"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GEy-Zg-nhf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dJH-nv-Wcq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q4m-S9-qoM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PEc-7b-62o" kind="relationship" relationship="rootViewController" id="eP9-hX-b8f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7PN-14-Bcu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641.5999999999999" y="1018.2908545727137"/>
         </scene>
     </scenes>
     <resources>

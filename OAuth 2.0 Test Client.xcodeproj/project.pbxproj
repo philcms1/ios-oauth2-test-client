@@ -14,6 +14,9 @@
 		D96DE9D51FEB3C88001DBD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96DE9D31FEB3C88001DBD9C /* LaunchScreen.storyboard */; };
 		D96DE9E01FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */; };
 		D96F59BD20116A62004F1581 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59BC20116A62004F1581 /* TabBarController.swift */; };
+		D96F59C020125D87004F1581 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F59BF20125D87004F1581 /* Eureka.framework */; };
+		D96F59C32012642C004F1581 /* ClientDCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59C22012642C004F1581 /* ClientDCRViewController.swift */; };
+		D96F59C5201265E9004F1581 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59C4201265E9004F1581 /* ClientTableViewController.swift */; };
 		D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */; };
 		D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */; };
 		D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */; };
@@ -43,6 +46,9 @@
 		D96DE9DF1FEB3C88001DBD9C /* OAuth_2_0_Test_ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth_2_0_Test_ClientTests.swift; sourceTree = "<group>"; };
 		D96DE9E11FEB3C88001DBD9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96F59BC20116A62004F1581 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D96F59BF20125D87004F1581 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		D96F59C22012642C004F1581 /* ClientDCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDCRViewController.swift; sourceTree = "<group>"; };
+		D96F59C4201265E9004F1581 /* ClientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
 		D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewController.swift; sourceTree = "<group>"; };
 		D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
 		D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96F59C020125D87004F1581 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +89,7 @@
 				D96DE9C61FEB3C88001DBD9C /* OAuth 2.0 Test Client */,
 				D96DE9DE1FEB3C88001DBD9C /* OAuth 2.0 Test ClientTests */,
 				D96DE9C51FEB3C88001DBD9C /* Products */,
+				D96F59BE20125D87004F1581 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +127,14 @@
 			path = "OAuth 2.0 Test ClientTests";
 			sourceTree = "<group>";
 		};
+		D96F59BE20125D87004F1581 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D96F59BF20125D87004F1581 /* Eureka.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D9A73DA31FFC15BB0022BA1D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +142,8 @@
 				D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */,
 				D9A73DAE2008018A0022BA1D /* NewProviderController.swift */,
 				D96F59BC20116A62004F1581 /* TabBarController.swift */,
+				D96F59C22012642C004F1581 /* ClientDCRViewController.swift */,
+				D96F59C4201265E9004F1581 /* ClientTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +166,7 @@
 				D96DE9C01FEB3C88001DBD9C /* Sources */,
 				D96DE9C11FEB3C88001DBD9C /* Frameworks */,
 				D96DE9C21FEB3C88001DBD9C /* Resources */,
+				D96F59C120125F49004F1581 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -236,6 +255,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D96F59C120125F49004F1581 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D96DE9C01FEB3C88001DBD9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -245,6 +281,8 @@
 				D96F59BD20116A62004F1581 /* TabBarController.swift in Sources */,
 				D9A73DAF2008018A0022BA1D /* NewProviderController.swift in Sources */,
 				D9476A76200FE9D000EE911B /* OAuth2Config.swift in Sources */,
+				D96F59C5201265E9004F1581 /* ClientTableViewController.swift in Sources */,
+				D96F59C32012642C004F1581 /* ClientDCRViewController.swift in Sources */,
 				D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */,
 				D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */,
 				D96DE9C81FEB3C88001DBD9C /* AppDelegate.swift in Sources */,
@@ -403,6 +441,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9493559BCM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "OAuth 2.0 Test Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-Client";
@@ -418,6 +460,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9493559BCM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "OAuth 2.0 Test Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.soaarchitects.apps.OAuth-2-0-Test-Client";
