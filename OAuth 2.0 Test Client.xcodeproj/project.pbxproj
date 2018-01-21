@@ -17,6 +17,10 @@
 		D96F59C020125D87004F1581 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F59BF20125D87004F1581 /* Eureka.framework */; };
 		D96F59C32012642C004F1581 /* ClientDCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59C22012642C004F1581 /* ClientDCRViewController.swift */; };
 		D96F59C5201265E9004F1581 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59C4201265E9004F1581 /* ClientTableViewController.swift */; };
+		D96F59C820129211004F1581 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F59C620129211004F1581 /* Alamofire.framework */; };
+		D96F59C920129211004F1581 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F59C720129211004F1581 /* SwiftyJSON.framework */; };
+		D96F59CC201292D2004F1581 /* TestSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59CB201292D2004F1581 /* TestSessionManager.swift */; };
+		D96F59CE2012A5FD004F1581 /* OAuth2APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F59CD2012A5FD004F1581 /* OAuth2APIManager.swift */; };
 		D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */; };
 		D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */; };
 		D9A73DAA2006B8340022BA1D /* ProviderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */; };
@@ -49,6 +53,10 @@
 		D96F59BF20125D87004F1581 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		D96F59C22012642C004F1581 /* ClientDCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDCRViewController.swift; sourceTree = "<group>"; };
 		D96F59C4201265E9004F1581 /* ClientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
+		D96F59C620129211004F1581 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D96F59C720129211004F1581 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		D96F59CB201292D2004F1581 /* TestSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSessionManager.swift; sourceTree = "<group>"; };
+		D96F59CD2012A5FD004F1581 /* OAuth2APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2APIManager.swift; sourceTree = "<group>"; };
 		D9A73DA41FFC16420022BA1D /* ProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewController.swift; sourceTree = "<group>"; };
 		D9A73DA72004322C0022BA1D /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
 		D9A73DA92006B8340022BA1D /* ProviderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96F59C020125D87004F1581 /* Eureka.framework in Frameworks */,
+				D96F59C820129211004F1581 /* Alamofire.framework in Frameworks */,
+				D96F59C920129211004F1581 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +115,7 @@
 		D96DE9C61FEB3C88001DBD9C /* OAuth 2.0 Test Client */ = {
 			isa = PBXGroup;
 			children = (
+				D96F59CA20129254004F1581 /* Services */,
 				D9476A74200FE9A000EE911B /* OAuth2 */,
 				D9A73DA6200431FA0022BA1D /* Views */,
 				D9A73DA31FFC15BB0022BA1D /* Controllers */,
@@ -130,9 +141,20 @@
 		D96F59BE20125D87004F1581 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D96F59C620129211004F1581 /* Alamofire.framework */,
+				D96F59C720129211004F1581 /* SwiftyJSON.framework */,
 				D96F59BF20125D87004F1581 /* Eureka.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D96F59CA20129254004F1581 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D96F59CB201292D2004F1581 /* TestSessionManager.swift */,
+				D96F59CD2012A5FD004F1581 /* OAuth2APIManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D9A73DA31FFC15BB0022BA1D /* Controllers */ = {
@@ -263,6 +285,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Eureka.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			outputPaths = (
 			);
@@ -277,10 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96F59CC201292D2004F1581 /* TestSessionManager.swift in Sources */,
 				D9A73DA82004322C0022BA1D /* ProviderTableViewCell.swift in Sources */,
 				D96F59BD20116A62004F1581 /* TabBarController.swift in Sources */,
 				D9A73DAF2008018A0022BA1D /* NewProviderController.swift in Sources */,
 				D9476A76200FE9D000EE911B /* OAuth2Config.swift in Sources */,
+				D96F59CE2012A5FD004F1581 /* OAuth2APIManager.swift in Sources */,
 				D96F59C5201265E9004F1581 /* ClientTableViewController.swift in Sources */,
 				D96F59C32012642C004F1581 /* ClientDCRViewController.swift in Sources */,
 				D9A73DA51FFC16420022BA1D /* ProviderTableViewController.swift in Sources */,

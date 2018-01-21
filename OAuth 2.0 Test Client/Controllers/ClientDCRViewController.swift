@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 import Eureka
 
 class ClientDCRViewController: FormViewController {
 
+    let oauth2APIManager = OAuth2APIManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,19 +52,19 @@ class ClientDCRViewController: FormViewController {
             <<< MultipleSelectorRow<String>() {
                 $0.title = "Grant Types"
                 $0.selectorTitle = "Select the supported grant types"
-                $0.options = ["Authorization Code", "Implicit", "Client Credentials", "Refresh Token"]
+                $0.options = ["Authorization Code", "Implicit", "client_credentials", "Refresh Token"]
                 $0.tag = "grantTypes"
             }
             <<< SegmentedRow<String>() {
                 $0.title = "Response Types"
-                $0.options = ["Code", "Token"]
+                $0.options = ["code", "token"]
                 $0.value = "Code"
                 $0.tag = "responseType"
             }
             <<< MultipleSelectorRow<String>() {
                 $0.title = "Token Endpoint Authentication"
                 $0.selectorTitle = "Select the authentication type"
-                $0.options = ["Client Secret Basic", "Client Secret Post"]
+                $0.options = ["client_secret_basic", "Client Secret Post"]
                 $0.tag = "endpointAuth"
             }
             <<< TextRow() { row in
@@ -78,8 +81,19 @@ class ClientDCRViewController: FormViewController {
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         print("Processign form data...")
         let valuesDictionary = form.values()
-        for (rowTag, value) in valuesDictionary {
+        var dcrData: Parameters = [:]
+        dcrData["client_name"] = valuesDictionary["name"]!
+        let redirectURL = valuesDictionary["redirectURI"]! as! URL
+        dcrData["redirect_uris"] = [redirectURL.absoluteString]
+        dcrData["grant_types"] = Array(valuesDictionary["grantTypes"] as! Set<String>) as Any
+        dcrData["response_type"] = valuesDictionary["responseType"]!
+        let authArray = Array(valuesDictionary["endpointAuth"] as! Set<String>)
+        dcrData["token_endpoint_auth_method"] = authArray.first
+        for (rowTag, value) in dcrData {
             print("\(rowTag) - \(value)")
+        }
+        oauth2APIManager.dynamicallyRegisterClient(dcrData: dcrData) { clientResponse in
+            print(clientResponse)
         }
     }
     
