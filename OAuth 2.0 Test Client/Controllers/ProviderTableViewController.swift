@@ -93,6 +93,9 @@ class ProviderTableViewController: UITableViewController, NSFetchedResultsContro
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ProviderTableViewCell
         
         let provider = providers[indexPath.row] as ProviderMO
+        if let theClients = provider.clients {
+            print("Found clients... \(theClients.count)")
+        }
         // Configure the cell...
         cell.nameLabel?.text = provider.name!
         cell.domainLabel?.text = provider.authorizationEndpoint!.absoluteString

@@ -13,59 +13,85 @@ import Eureka
 class ClientDCRViewController: FormViewController {
 
     let oauth2APIManager = OAuth2APIManager.sharedInstance
+    let oauth2Config = OAUth2Config.sharedInstance
+    var viewModel: ViewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         form +++ Section("Client Information")
-            <<< TextRow() { row in
-                row.title = "Client Name"
-                row.placeholder = "Human-readable display name"
-                row.tag = "name"
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnBlur
-            }
-            .cellUpdate { cell, row in
-                if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+            <<< TextRow() {
+                $0.title = "Client Name"
+                $0.placeholder = "Human-readable display name"
+                $0.onChange { [unowned self] row in
+                    if let name = row.value {
+                        self.viewModel.name = name
+                    }
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { (cell, row) in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
                 }
             }
-            <<< TextRow() { row in
-                row.title = "Client URI"
-                row.placeholder = "Client's homepage"
-                row.tag = "clientURI"
+            <<< URLRow() {
+                $0.title = "Client URI"
+                $0.placeholder = "Client's homepage"
             }
-            <<< URLRow() { row in
-                row.title = "Redirect URI"
-                row.placeholder = "URI"
-                row.tag = "redirectURI"
-                row.add(rule: RuleRequired())
-                row.validationOptions = .validatesOnBlur
-            }
-            .cellUpdate { cell, row in
-                if !row.isValid {
-                    cell.titleLabel?.textColor = .red
+            <<< URLRow() {
+                $0.title = "Redirect URI"
+                $0.placeholder = "URI"
+                $0.onChange { [unowned self] row in
+                    if let theURL = row.value {
+                        self.viewModel.redirectURIs = [theURL.absoluteString]
+                    }
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+                $0.cellUpdate { (cell, row) in
+                    if !row.isValid {
+                        cell.titleLabel?.textColor = .red
+                    }
                 }
             }
         +++ Section("OAuth 2.0 Configuration")
             <<< MultipleSelectorRow<String>() {
                 $0.title = "Grant Types"
                 $0.selectorTitle = "Select the supported grant types"
-                $0.options = ["Authorization Code", "Implicit", "client_credentials", "Refresh Token"]
-                $0.tag = "grantTypes"
+                $0.options = ["Authorization Code", "Implicit", "Client Credentials", "Refresh Token"]
+                $0.onChange { [unowned self] row in
+                    if let grantTypes = row.value {
+                        self.viewModel.grantTypes = Array(grantTypes)
+                    }
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnBlur
             }
             <<< SegmentedRow<String>() {
                 $0.title = "Response Types"
-                $0.options = ["code", "token"]
-                $0.value = "Code"
-                $0.tag = "responseType"
+                $0.options = ["Code", "Token"]
+                $0.onChange { [unowned self] row in
+                    if let responseType = row.value {
+                        self.viewModel.responseType = responseType
+                    }
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnBlur
             }
-            <<< MultipleSelectorRow<String>() {
+            <<< PushRow<String>() {
                 $0.title = "Token Endpoint Authentication"
                 $0.selectorTitle = "Select the authentication type"
-                $0.options = ["client_secret_basic", "Client Secret Post"]
-                $0.tag = "endpointAuth"
+                $0.options = ["Client Secret Basic", "Client Secret Post"]
+                $0.onChange { [unowned self] row in
+                    if let endpointAuth = row.value {
+                        self.viewModel.tokenEndpointAuthMethod = endpointAuth
+                    }
+                }
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnBlur
             }
             <<< TextRow() { row in
                 row.title = "Scope"
@@ -80,20 +106,66 @@ class ClientDCRViewController: FormViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         print("Processign form data...")
-        let valuesDictionary = form.values()
-        var dcrData: Parameters = [:]
-        dcrData["client_name"] = valuesDictionary["name"]!
-        let redirectURL = valuesDictionary["redirectURI"]! as! URL
-        dcrData["redirect_uris"] = [redirectURL.absoluteString]
-        dcrData["grant_types"] = Array(valuesDictionary["grantTypes"] as! Set<String>) as Any
-        dcrData["response_type"] = valuesDictionary["responseType"]!
-        let authArray = Array(valuesDictionary["endpointAuth"] as! Set<String>)
-        dcrData["token_endpoint_auth_method"] = authArray.first
-        for (rowTag, value) in dcrData {
-            print("\(rowTag) - \(value)")
-        }
-        oauth2APIManager.dynamicallyRegisterClient(dcrData: dcrData) { clientResponse in
-            print(clientResponse)
+        print("Client name: \(String(describing: self.viewModel.name))")
+        print("Redirect URIs: \(self.viewModel.redirectURIs)")
+        print("Grant Types: \(self.viewModel.grantTypes)")
+        print("Response Type: \(String(describing: self.viewModel.responseType))")
+        print("Token Endpoint Auth: \(String(describing: self.viewModel.tokenEndpointAuthMethod))")
+        // TODO: handle optional values:
+        // if let foo = dcrData.foo { parameters["bar"] = foo }
+        let parameters: Parameters = [
+            "client_name" : viewModel.name,
+            "redirect_uris" : viewModel.redirectURIs,
+            "grant_types" : viewModel.grantTypes,
+            "response_type" : viewModel.responseType,
+            "token_endpoint_auth_method" : viewModel.tokenEndpointAuthMethod,
+            ]
+        
+        oauth2APIManager.dynamicallyRegisterClient(url: (self.oauth2Config.selectedProvider.registrationEndpoint?.absoluteString)!, dcrData: parameters) { json in
+            print("JSON: \(json)")
+//            let statusCode = json["statusCode"].int
+//            if let statusCode = statusCode {
+//                if (statusCode != 200) {
+//                    print("Something wrong happened... \(statusCode)")
+//                } else {
+//                    
+//                }
+//            }
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                let context = appDelegate.persistentContainer.viewContext
+                let client = ClientMO(context: context)
+//                print("ID: \(json["client_id"].string!)")
+//                let theUUID = UUID(uuidString: json["client_id"].string! as String)
+//                print(theUUID!)
+                client.id = UUID()
+                print(client.id!)
+                print("Secret: \(json["client_secret"].string!)")
+                client.secret = json["client_secret"].string!
+                print(client.secret!)
+                client.isActive = true
+                print(client.isActive)
+                client.name = self.viewModel.name
+                print(client.name!)
+//                print(self.viewModel.redirectURIs[0])
+                client.redirectURI = URL(string: self.viewModel.redirectURIs[0])
+                print(client.redirectURI!)
+                client.grantType = self.viewModel.grantTypes[0]
+                print(client.grantType!)
+                client.responseType = self.viewModel.responseType
+                print(client.responseType!)
+                client.tokenEndpointAuthMethod = self.viewModel.tokenEndpointAuthMethod
+                print(client.tokenEndpointAuthMethod!)
+                print(client)
+                if let currentProvider = self.oauth2Config.selectedProvider {
+                    print("Saving the client...")
+                    currentProvider.addToClients(client)
+                    appDelegate.saveContext()
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+            
         }
     }
     

@@ -86,7 +86,10 @@ class NewProviderController: UITableViewController, UITextFieldDelegate {
             provider.name = nameTextField.text
             provider.company = companyTextField.text
             provider.authorizationEndpoint = URL(string: authorizationTextField.text!)
-            provider.tokenEndpoint = URL(string: tokenTextField.text!)
+            provider.tokenEndpoint = URL(string: tokenTextField.text! as! String)
+            if let regUrl = registrationTextField.text {
+                provider.registrationEndpoint = URL(string: regUrl)
+            }
             
             print("Saving data to context... ");
             appDelegate.saveContext()

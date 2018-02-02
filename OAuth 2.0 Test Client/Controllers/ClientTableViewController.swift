@@ -10,6 +10,10 @@ import UIKit
 
 class ClientTableViewController: UITableViewController {
 
+    var clients: [ClientMO] = []
+    let oauth2Config = OAUth2Config.sharedInstance
+    var currentProvider: ProviderMO!
+    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
@@ -22,6 +26,11 @@ class ClientTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if let provider = oauth2Config.selectedProvider,
+            let providerClients = provider.clients {
+            currentProvider = provider
+            clients = providerClients.allObjects as! [ClientMO]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,23 +42,23 @@ class ClientTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return clients.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if clients.count > 0 {
+            cell.textLabel?.text = clients[indexPath.row].name
+        }
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

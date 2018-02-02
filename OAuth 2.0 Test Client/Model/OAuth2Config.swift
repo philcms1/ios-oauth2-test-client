@@ -7,13 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
 class OAUth2Config {
     static let sharedInstance = OAUth2Config()
     // MARK - Properties
     var selectedProvider: ProviderMO!
     var selectedClient: ClientMO!
-//    let selectedClient: ClientMO = nil
+
+    // MARK - Actions
+    // ********************************************************************************
+    // Providers
+    // ********************************************************************************
     func setProvider(provider: ProviderMO) {
         self.selectedProvider = provider
     }
@@ -21,6 +26,13 @@ class OAUth2Config {
     func removeProvider() {
         // TODO: remove client and token if exist
         self.selectedProvider = nil
+    }
+    
+    // ********************************************************************************
+    // Clients
+    // ********************************************************************************
+    func addClient(client: ClientMO) {
+        
     }
     
 }
